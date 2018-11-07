@@ -23,9 +23,5 @@ var express = require("express");
     }
 
     module.exports.addFriend = function (newFriend) {
-        //convert string to array
-        //first value has square bracket before score
-        //last value has square bracket after score
         people.push(newFriend);
-        //console.log(people);
     }
