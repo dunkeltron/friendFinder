@@ -22,10 +22,9 @@ module.exports = function (app) {
         if (req.body) {
             console.log(req.body.scores );
             req.body.scores = makeArray(req.body.scores);
-            friends.addFriend(req.body);
+            friends.addFriend(req.body);           
             
-            calcFriend(req.body);
-            res.json(true);
+            res.json(calcFriend(req.body));
         }
         else {
             res.json(false);
@@ -58,8 +57,6 @@ module.exports = function (app) {
             }
             element.scores
         });
-        console.log(bestMatch);
-        console.log(bestMatchPerson);
         return bestMatchPerson;
     }
 

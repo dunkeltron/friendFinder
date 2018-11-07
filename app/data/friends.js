@@ -1,8 +1,8 @@
-var express = require("express");
+
     var people = [
         {
             "name": "Ahmed",
-            "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+            "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Default_profile_picture_%28male%29_on_Facebook.jpg/600px-Default_profile_picture_%28male%29_on_Facebook.jpg",
             "scores": [
                 5,
                 1,
