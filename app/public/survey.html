@@ -137,7 +137,8 @@
             </select>
           </div>
         </form>
-        <a class="btn  btn-primary btn-lg col-12 " id="submitButton" data-toggle="modal" data-target="#friendModal" role="button">Submit</a>
+        <a class="btn  btn-primary btn-lg col-12 " id="submitButton" data-toggle="modal" data-target="#friendModal"
+          role="button">Submit</a>
         <a class="btn btn-primary btn-lg" href="/" id="homeButton" role="button">Go Home</a>
       </div>
     </div>
@@ -147,14 +148,14 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title" >Best Match</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <h1 class="modal-title">Best Match</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         <div class="modal-body">
           <h2 id="friendText"></h2>
-          <div class="col-6" id = "picDiv">
+          <div class="col-6" id="picDiv">
             <img class="col-12" id="profilePic" src="">
           </div>
         </div>
@@ -164,53 +165,74 @@
       </div>
     </div>
   </div>
-  <footer class = "container">
+  <footer class="container">
     <p>
       <a href="/api/friends"> API Friends List</a>
-       |  
+      |
       <a href="https://github.com/dunkeltron/friendFinder/"> GitHub Repo</a>
     </p>
   </footer>
 
   <script type="text/javascript">
+    //submit button click listener
     $("#submitButton").on("click", function (event) {
       event.preventDefault();
-      if ($("#userName").val().trim()!="" && $("#userLink").val().trim()!=""){
-      var newFriend = {
-        name: $("#userName").val().trim(),
-        photo: $("#userLink").val().trim(),
-        scores: [
-          $("#q1").val().trim(),
-          $("#q2").val().trim(),
-          $("#q3").val().trim(),
-          $("#q4").val().trim(),
-          $("#q5").val().trim(),
-          $("#q6").val().trim(),
-          $("#q7").val().trim(),
-          $("#q8").val().trim(),
-          $("#q9").val().trim(),
-          $("#q10").val().trim()
 
-        ]
-      };
-      $.post("/api/friends", newFriend,
-        function (data) {
+      //make sure the user enters a value for name and photo link
+      if ($("#userName").val().trim() != "" && $("#userLink").val().trim() != "") {
+        //get values from the form
+        var newFriend = {
+          name: $("#userName").val().trim(),
+          photo: $("#userLink").val().trim(),
+          scores: [
+            $("#q1").val().trim(),
+            $("#q2").val().trim(),
+            $("#q3").val().trim(),
+            $("#q4").val().trim(),
+            $("#q5").val().trim(),
+            $("#q6").val().trim(),
+            $("#q7").val().trim(),
+            $("#q8").val().trim(),
+            $("#q9").val().trim(),
+            $("#q10").val().trim()
 
-          var picture = $("#profilePic");
-          picture.attr("src",data.photo);
-          picture.attr("alt","A picture of your best match.");      
-          
-          $("#picDiv").append(picture);
-          $("#friendText").text(data.name);
-        });
+          ]
+        };
+        //reset the form
+        $("#userName").clear();
+        $("#userLink").clear();
+        $("#q1").clear();
+        $("#q2").clear();
+        $("#q3").clear();
+        $("#q4").clear();
+        $("#q5").clear();
+        $("#q6").clear();
+        $("#q7").clear();
+        $("#q8").clear();
+        $("#q9").clear();
+        $("#q10").clear();
+
+        //send the newFriend object to the api
+        //data is the friend object of the closest friend match determined by apiRoutes.js        
+        $.post("/api/friends", newFriend,
+          function (data) {
+
+            //populate the modal with the information of the closest friend match
+            var picture = $("#profilePic");
+            picture.attr("src", data.photo);
+            picture.attr("alt", "A picture of your best match.");
+
+            $("#picDiv").append(picture);
+            $("#friendText").text(data.name);
+          });
       }
-      else{
+      //use the bootstrap modal as an error message in case the user doesn't enter a name or photo link
+      else {
         $(".modal-title").text("Error.");
         $("#friendText").text("You must enter a name and photo link to join Friend Finder.");
-        //alert("You must enter a name and photo link to join Friend Finder.");
       }
     });
-  
+
   </script>
 </body>
 

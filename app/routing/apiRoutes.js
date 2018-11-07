@@ -1,39 +1,34 @@
 var friends = require("../data/friends.js");
 
 module.exports = function (app) {
+
     app.get("/api/friends", function (req, res) {
         var arr = friends.getFriends();
         return res.json(arr);
-        //return res.arr.json();
     });
 
+    //this function assumes that req.body will be a valid friend object 
     app.post("/api/friends", function (req, res) {
-        //create new friend object based on response
-        //newPerson = new Person(name,photo,scoresarray)
-        //calc best friend
-        //calcFriend(req.body);
-        var newBuddy = {
-            name: "Ian",
-            photo: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
-            scores: [4, 1, 4, 4, 5, 1, 2, 5, 4, 1]
-        }
-        //add friend to friends array after calculating new person objects compatability
-        if (req.body) {
-            req.body.scores = makeArray(req.body.scores);
-            friends.addFriend(req.body);           
-            
+        //add friend to friends array after calculating new person objects compatability then return best matching friend object
+        if (req.body) {  
+            req.body.scores = makeIntArray(req.body.scores);
+            friends.addFriend(req.body);         
             res.json(calcFriend(req.body));
         }
         else {
             res.json(false);
         }
     });
-    function makeArray(str){
-            str.forEach(element =>{
+
+    //make sure the values in the array are integers
+    function makeIntArray(arr){
+            arr.forEach(element =>{
                 element = parseInt(element);
             });
-            return str;
+            return arr;
     }
+
+    //calculate and return friend object with the lowest matchScore
     function calcFriend(newFriend) {
         var bestMatch = 1000;
         var friendsArr = friends.getFriends();
@@ -41,19 +36,21 @@ module.exports = function (app) {
         var bestMatchPerson;
         friendsArr.forEach(element => {
             matchScore = 0;
-            if(element.name == newFriend.name){
-
+            //don't compare to duplicate entries
+            if(element === newFriend){                
             }
             else{
+                //calculate matchscore
                 for (var i = 0; i < element.scores.length; i++) {
                     matchScore += Math.abs(newFriend.scores[i] - element.scores[i]);
                 }
+                //matchscore is determined by least difference in scores
+                //if the current element's matchscore is lower than bestMatch then we need to store the current element as the best match
                 if (bestMatch > matchScore) {
                     bestMatch = matchScore;
                     bestMatchPerson = element;
                 }
             }
-            element.scores
         });
         return bestMatchPerson;
     }
