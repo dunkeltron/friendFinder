@@ -2,144 +2,177 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Friend Finder</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Friend Finder</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
-    <div class="container">
-        <div class="jumbotron jumbotron-fluid rounded justify-content-center">
-            
-            <div class="no-gutters col-12 ">
-                <h1 class="display-4">Friend Finder</h1>
-                <hr class="my-4">
-                <p class="lead">About You.</p>
-                <div class="form-group">
-                    <label for="userName">Name (Required)</label>
-                    <input type="name" class="form-control col-8" id="userName" >
-                  </div>
-                  <div class="form-group">
-                    <label for="userLink">Photo Link (Required)</label>
-                    <input type="link" class="form-control col-8" id="userLink" placeholder="example.link.com">
-                  </div>
-                
-                <form class="no-gutters">
-                    <div class="form-group">
-                      <label for="exampleFormControlSelect1">Your mind is always buzzing with unexplored ideas and plans.</label>
-                      <select class="form-control col-1" id="q1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Generally speaking, you rely more on your experience than your imagination.</label>
-                        <select class="form-control col-1" id="q2">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">You find it easy to stay relaxed and focused even when there is some pressure.</label>
-                        <select class="form-control col-1" id="q3">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">It is often difficult for you to relate to other people’s feelings.</label>
-                        <select class="form-control col-1" id="q4">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">In a discussion, truth should be more important than people’s sensitivities.</label>
-                        <select class="form-control col-1" id="q5">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">You rarely get carried away by fantasies and ideas.</label>
-                        <select class="form-control col-1" id="q6">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</label>
-                        <select class="form-control col-1" id="q7">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">You feel more energetic after spending time with a group of people.</label>
-                        <select class="form-control col-1" id="q8">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">People can rarely upset you.</label>
-                        <select class="form-control col-1" id="q9">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">You rarely do something just out of sheer curiosity.</label>
-                        <select class="form-control col-1" id="q10">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                  </form>
-                  <a class="btn  btn-primary btn-lg col-12 " href="/api/friends"id="submitButton" role="button">Submit</a>
-                  <a class = "btn btn-primary btn-lg" href="/" id="homeButton" role="button">Go Home</a>
-            </div>
-        </div>
-       
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid rounded justify-content-center">
 
+      <div class="no-gutters col-12 ">
+        <h1 class="display-4">Friend Finder</h1>
+        <hr class="my-4">
+        <p class="lead">About You.</p>
+        <div class="form-group">
+          <label for="userName">Name (Required)</label>
+          <input type="name" class="form-control col-8" id="userName">
+        </div>
+        <div class="form-group">
+          <label for="userLink">Photo Link (Required)</label>
+          <input type="link" class="form-control col-8" id="userLink" placeholder="example.link.com">
+        </div>
+
+        <form class="no-gutters">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Your mind is always buzzing with unexplored ideas and plans.</label>
+            <select class="form-control col-1" id="q1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Generally speaking, you rely more on your experience than your
+              imagination.</label>
+            <select class="form-control col-1" id="q2">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">You find it easy to stay relaxed and focused even when there is some
+              pressure.</label>
+            <select class="form-control col-1" id="q3">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">It is often difficult for you to relate to other people’s feelings.</label>
+            <select class="form-control col-1" id="q4">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">In a discussion, truth should be more important than people’s
+              sensitivities.</label>
+            <select class="form-control col-1" id="q5">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">You rarely get carried away by fantasies and ideas.</label>
+            <select class="form-control col-1" id="q6">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">You think that everyone’s views should be respected regardless of
+              whether they are supported by facts or not.</label>
+            <select class="form-control col-1" id="q7">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">You feel more energetic after spending time with a group of people.</label>
+            <select class="form-control col-1" id="q8">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">People can rarely upset you.</label>
+            <select class="form-control col-1" id="q9">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">You rarely do something just out of sheer curiosity.</label>
+            <select class="form-control col-1" id="q10">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </form>
+        <a class="btn  btn-primary btn-lg col-12 submit" id="submitButton" role="button">Submit</a>
+        <a class="btn btn-primary btn-lg" href="/" id="homeButton" role="button">Go Home</a>
+      </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+
+  </div>
+
+  <script type="text/javascript">
+      $(".submit").on("click", function (event) {
+        event.preventDefault();
+        var newFriend = {
+          name: $("#userName").val().trim(),
+          photo: $("#userLink").val().trim(),
+          scores: [
+            $("#q1").val().trim(),
+            $("#q2").val().trim(),
+            $("#q3").val().trim(),
+            $("#q4").val().trim(),
+            $("#q5").val().trim(),
+            $("#q6").val().trim(),
+            $("#q7").val().trim(),
+            $("#q8").val().trim(),
+            $("#q9").val().trim(),
+            $("#q10").val().trim()
+
+          ]
+        };
+        console.log(newFriend);
+        $.post("/api/friends", newFriend,
+          function (data) {
+            //console.log(data);
+            alert("we did it!");
+          });
+      });
+  </script>
 </body>
 
 </html>

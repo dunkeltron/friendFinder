@@ -20,8 +20,10 @@ module.exports = function (app) {
         //add friend to friends array after calculating new person objects compatability
         console.log("add friends");
         if (req.body) {
+            console.log(req.body.scores );
             req.body.scores = makeArray(req.body.scores);
             friends.addFriend(req.body);
+            
             calcFriend(req.body);
             res.json(true);
         }
@@ -30,13 +32,10 @@ module.exports = function (app) {
         }
     });
     function makeArray(str){
-        var newScores = str.split(",");
-            newScores[0] = newScores[0].split("[")[1];
-            newScores[9] = newScores[9].split("]")[0];
-            newScores.forEach(element =>{
+            str.forEach(element =>{
                 element = parseInt(element);
             });
-            return newScores;
+            return str;
     }
     function calcFriend(newFriend) {
         var bestMatch = 1000;
@@ -59,6 +58,7 @@ module.exports = function (app) {
             }
             element.scores
         });
+        console.log(bestMatch);
         console.log(bestMatchPerson);
         return bestMatchPerson;
     }
