@@ -18,9 +18,7 @@ module.exports = function (app) {
             scores: [4, 1, 4, 4, 5, 1, 2, 5, 4, 1]
         }
         //add friend to friends array after calculating new person objects compatability
-        console.log("add friends");
         if (req.body) {
-            console.log(req.body.scores );
             req.body.scores = makeArray(req.body.scores);
             friends.addFriend(req.body);           
             
